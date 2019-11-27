@@ -43,7 +43,7 @@ export const resetSpace = res =>{
   var data = [...res]
   for(var item of data){
     for(var index in item){
-      if(!item[index]){
+      if(!item[index] && item[index] !== 0){
         item[index] = '/'
       }
     }

@@ -12,7 +12,6 @@ const router = new VueRouter({
 const HAS_LOGINED = true // 通过接口获得，如果登陆了
 // 路由守卫，当页面需要跳转判断用户权限时使用，to 是要去的页面，from是当前页，next是一个函数，与express next一样用法
 router.beforeEach((to, from, next) => {
-  to.meta && setTilte(to.meta.title)
   if (to.name !== 'login') {
     if (HAS_LOGINED) next()
     else next({ name: 'login' })

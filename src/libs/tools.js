@@ -35,4 +35,18 @@ export const errorFunc= res => {
   });
 }
 
-
+/**
+ * @desc 遍历数组内所有对象的所有属性，如果为空就设置为 '/'
+ * *@param res 数组
+ */
+export const resetSpace = res =>{
+  var data = [...res]
+  for(var item of data){
+    for(var index in item){
+      if(!item[index]){
+        item[index] = '/'
+      }
+    }
+  }
+  return data
+}

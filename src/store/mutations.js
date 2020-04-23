@@ -1,16 +1,17 @@
-import Vue from 'vue'
+/*
+ * @name: 文件
+ * @Author: Haojin Sun
+ * @Date: 2019-12-02 12:15:20
+ * @LastEditors: Haojin Sun
+ * @LastEditTime: 2020-03-17 15:43:01
+ */
+
 const mutations = {
-  SET_APPNAME (state, params) {
-    state.appName = params
-  },
-  SET_APP_VERSION (state, params) {
-    Vue.set(state, 'appVersion', params)
-  },
-  SET_ARGU_NAME (state, params) {
-    state.arguName = params
-  },
-  SET_INPUT_VALUE (state, params) {
-    state.inputStateValue = params
-  }
+  // SET_USERINFO (state, params) {
+  //   console.log(params)
+  //   console.log(state)
+  //   state.userInfo = params
+  // },
+
 }
 export default mutations

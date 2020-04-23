@@ -1,0 +1,111 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": "eslint:recommended",
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly",
+        "layui": true,
+        "layer": true,
+        "$": true,
+        "jQuery": true,
+        "process": true,
+        "Swiper": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "rules": {
+        "no-console": 0,
+        "indent": [
+            "error",
+            2
+        ], // tab换行
+        "linebreak-style": [
+            "error",
+            "windows"
+        ], // 换行风格
+        "quotes": [
+            "error",
+            "single"
+        ], // 使用单引号
+        "semi": [
+            "error",
+            "never"
+        ], // 句末不加分号
+        "no-extra-parens": 2, // 禁止不必要的括号
+        "dot-location": [
+            2,
+            "property"
+        ], // 点号跟在对象后面
+        "dot-notation": [
+            2,
+            {
+                "allowKeywords": false
+            }
+        ], // 尽量使用点号获取参数
+        "eqeqeq": [
+            2,
+            "allow-null"
+        ], // 使用全等于
+        "no-empty-function": 2, // 禁止出现空函数
+        "no-multi-spaces": 2, // 禁止使用多个空格
+        "no-lone-blocks": 2, // 禁止不必要的花括号嵌套
+        "no-self-compare": 2, // 禁止自身比较
+        "no-useless-return": 2, // 禁止多余的 return 语句
+        "require-await": 2, // 禁止使用不带 await 表达式的 async 函数
+        "vars-on-top": [2,"inside"], // 要求所有的 var 声明出现在它们所在的作用域顶部
+        "wrap-iife": 2, // 要求 IIFE 使用括号括起来
+        "init-declarations": [ // var 初始化必须有值
+            2,
+            "always"
+        ],
+        "no-shadow": 2, // 禁止变量声明与外层作用域的变量同名
+        "no-undef-init": 2, // 禁止将变量初始化为 undefined
+        "no-use-before-define": [
+            2,
+            {
+                "functions": false
+            }
+        ], // 禁止定义前使用
+        "camelcase": 2, // 使用骆驼拼写法命名约定
+        "array-bracket-spacing": 2, // 数组内不允许出现多余空格
+        "comma-dangle": 2, // 禁止使用拖尾逗号
+        "comma-spacing": 2, // 禁止逗号前使用空格 
+        "comma-style": 2, // 要求逗号放在数组元素、对象属性或变量声明之后，且在同一行
+        "computed-property-spacing": 2, // 禁止在计算属性中使用空格
+        "consistent-this": 2, // 要求一致的 This （如果需要this别名，只能使用that）
+        "func-call-spacing": 2, // 禁止在函数标识符和其调用之间有空格
+        "line-comment-position": 2, // 强制行注释在代码上方，单独成行
+        "max-len": 2, // 单行最大长度 80个字符
+        "max-lines-per-function": [
+            2,
+            {
+                "max": 100,
+                "skipComments": true,
+                "skipBlankLines": true
+            }
+        ], // 单个函数最多50行
+        "max-params": 2, // 单个函数最多三个参数 更多的使用对象的方式
+        "max-statements-per-line": 2, // 单行最多一个语句
+        "multiline-comment-style": 0, // 多行注释 要求注释的每行之前有一个 *
+        "new-cap": 2, // 构造函数首字母大写
+        "new-parens": 2, // 无参的构造函数后面也必须有括号
+        "no-mixed-operators": 2, // 禁止混合使用不同的操作符
+        "no-multi-assign": 2, // 禁止连续赋值
+        "object-property-newline": 2, // 属性必须在不同的行上
+        "space-in-parens": 2, // 圆括号内两边没有空格
+        "space-infix-ops": 2, // 要求中缀操作符周围有空格
+        "spaced-comment": [
+            2,
+            "always"
+        ], // 要求在注释前有空格
+        "no-duplicate-imports": 2, //禁止重复导入模块
+        "prefer-arrow-callback": 2, // 回调函数统一使用箭头函数
+        "prefer-rest-params": 2, // 使用剩余参数代替 arguments
+        "prefer-template": 2 // 使用模板字面量而非字符串连接
+    }
+}

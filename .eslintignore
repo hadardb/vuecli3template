@@ -3,6 +3,7 @@
 /src/plugins
 /src/config
 /test
+/vue.config.js
 
 /webpack.base.js
 /webpack.dev.js

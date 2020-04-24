@@ -1,22 +1,14 @@
 {
+    "root": true,
     "env": {
-        "browser": true,
-        "es6": true
+      "node": true
     },
-    "extends": "eslint:recommended",
-    "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly",
-        "layui": true,
-        "layer": true,
-        "$": true,
-        "jQuery": true,
-        "process": true,
-        "Swiper": true
-    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
     "parserOptions": {
-        "ecmaVersion": 2018,
-        "sourceType": "module"
+      "parser": "babel-eslint"
     },
     "rules": {
         "no-console": 0,
@@ -57,7 +49,7 @@
         "no-self-compare": 2, // 禁止自身比较
         "no-useless-return": 2, // 禁止多余的 return 语句
         "require-await": 2, // 禁止使用不带 await 表达式的 async 函数
-        "vars-on-top": [2,"inside"], // 要求所有的 var 声明出现在它们所在的作用域顶部
+        "vars-on-top": 2, // 要求所有的 var 声明出现在它们所在的作用域顶部
         "wrap-iife": 2, // 要求 IIFE 使用括号括起来
         "init-declarations": [ // var 初始化必须有值
             2,
@@ -108,4 +100,7 @@
         "prefer-rest-params": 2, // 使用剩余参数代替 arguments
         "prefer-template": 2 // 使用模板字面量而非字符串连接
     }
+
+
+    
 }

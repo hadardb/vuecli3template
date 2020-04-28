@@ -1,6 +1,15 @@
+/*
+ * @name: 文件
+ * @Author: Haojin Sun
+ * @Date: 2019-12-02 12:15:20
+ * @LastEditors: Haojin Sun
+ * @LastEditTime: 2020-04-28 08:48:56
+ */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import routes from './router'
+import '../assets/nprogress.css' 
+import NProgress from 'nprogress' 
 
 Vue.use(VueRouter)
 
@@ -8,10 +17,11 @@ Vue.use(VueRouter)
 const router = new VueRouter({
   routes
 })
-
-const HAS_LOGINED = true // 通过接口获得，如果登陆了
+// 通过接口获得，如果登陆了
+const HAS_LOGINED = true 
 // 路由守卫，当页面需要跳转判断用户权限时使用，to 是要去的页面，from是当前页，next是一个函数，与express next一样用法
 router.beforeEach((to, from, next) => {
+  NProgress.start()
   if (to.name !== 'login') {
     if (HAS_LOGINED) next()
     else next({ name: 'login' })
@@ -24,8 +34,8 @@ router.beforeEach((to, from, next) => {
 // router.beforeResolve
 
 // 后置钩子，当页面跳转后进行回调函数
-router.afterEach((to, from) => {
-  //
+router.afterEach(() => {
+  NProgress.done()
 })
 
 /*

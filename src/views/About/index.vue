@@ -3,7 +3,7 @@
  * @Author: Haojin Sun
  * @Date: 2019-12-02 12:15:20
  * @LastEditors: Haojin Sun
- * @LastEditTime: 2020-04-24 17:23:05
+ * @LastEditTime: 2020-04-28 08:38:27
  -->
 <template>
   <div class="about">
@@ -17,7 +17,7 @@ import complate from './complate'
 export default {
   methods:{
     getData(data){
-      
+      console.log(data)
     }
   },
   components:{

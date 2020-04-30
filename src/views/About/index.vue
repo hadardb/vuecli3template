@@ -3,12 +3,15 @@
  * @Author: Haojin Sun
  * @Date: 2019-12-02 12:15:20
  * @LastEditors: Haojin Sun
- * @LastEditTime: 2020-04-28 08:38:27
+ * @LastEditTime: 2020-04-28 10:28:48
  -->
 <template>
   <div class="about">
     <P></P>
     <MyTest/>
+    <el-button type="primary" @click="handleError">
+      报错
+    </el-button>
   </div>
 </template>
 
@@ -18,6 +21,10 @@ export default {
   methods:{
     getData(data){
       console.log(data)
+    },
+    handleError(){
+      let error = new Error('点击事件报错拉')
+      throw error
     }
   },
   components:{

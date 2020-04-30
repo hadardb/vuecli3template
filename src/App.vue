@@ -3,7 +3,7 @@
  * @Author: Haojin Sun
  * @Date: 2019-12-02 12:15:20
  * @LastEditors: Haojin Sun
- * @LastEditTime: 2020-03-17 15:53:29
+ * @LastEditTime: 2020-04-28 12:59:16
  -->
 <template>
   <div id="app">
@@ -20,19 +20,24 @@ import { mapMutations } from 'vuex'
 export default {
   name: 'app',
   methods: {
-    ...mapMutations( 'user' ,['SET_USERINFO'])
+    ...mapMutations('user', ['setUserInfo'])
   },
-   mounted() {
+  mounted() {
     // let user = localStorage.getItem('userInfo')
     let user = {
-      type: '1', // 1 委托端 0机构端
-      loading: false, // 是否登录成功
-      auditStatus: '2', // 0等待审核 1审核通过 2审核不通过 3信息完善
-      agencyId: '3214', // 机构/委托用户id
-      agencyName: '123' // 注册用户名
+      // 1 委托端 0机构端
+      type: '1', 
+      // 是否登录成功
+      loading: false, 
+      // 0等待审核 1审核通过 2审核不通过 3信息完善
+      auditStatus: '2', 
+      // 机构/委托用户id
+      agencyId: '3214', 
+      // 注册用户名
+      agencyName: '123' 
     }
     console.log(user)
-    this.SET_USERINFO(user)
+    this.setUserInfo(user)
   }
   
 }

@@ -3,7 +3,7 @@
  * @Author: Haojin Sun
  * @Date: 2020-05-03 14:10:22
  * @LastEditors: Haojin Sun
- * @LastEditTime: 2020-05-03 15:03:49
+ * @LastEditTime: 2020-05-03 15:37:38
  -->
 <template>
   <div class="myGrid">
@@ -43,7 +43,7 @@ export default {}
 
 .area1 {
   grid-area: area1;
-  background-color: aqua;
+  background-color: #000;
 }
 
 .area2 {

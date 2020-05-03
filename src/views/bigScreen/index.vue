@@ -3,12 +3,16 @@
  * @Author: Haojin Sun
  * @Date: 2020-05-03 14:21:50
  * @LastEditors: Haojin Sun
- * @LastEditTime: 2020-05-03 15:02:28
+ * @LastEditTime: 2020-05-03 15:29:28
  -->
 <template>
   <div>
     <bigScreenLayout>
-      <div slot="area1">1</div>
+      <div slot="area1" class="itemPack">
+        <bigScreenBorder>
+          1
+        </bigScreenBorder>
+      </div>
       <div slot="area2">2</div>
       <div slot="area3">3</div>
       <div slot="area4">4</div>
@@ -24,9 +28,15 @@
 
 <script>
 import bigScreenLayout from '@/layout/bigScreenLayout'
+import bigScreenBorder from '@/components/bigScreenBorder'
 export default {
-  components: { bigScreenLayout }
+  components: { bigScreenLayout,
+    bigScreenBorder }
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.itemPack{
+    height: 100%;
+}
+</style>

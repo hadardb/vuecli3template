@@ -3,7 +3,7 @@
  * @Author: Haojin Sun
  * @Date: 2019-12-02 12:15:20
  * @LastEditors: Haojin Sun
- * @LastEditTime: 2020-04-29 10:12:19
+ * @LastEditTime: 2020-05-11 19:49:19
  */
 const { appConfig } = require('./appConfig')
 const path = require('path')
@@ -40,9 +40,18 @@ module.exports = {
       .set('_c', resolve('src/components'))
   },
   // 打包时不生成map文件
-  productionSourceMap: true,
+  productionSourceMap: false,
   devServer: {
-    // proxy: 'http://localhost:4000'
+    proxy: {
+      '/api': {//代理api
+          target: 'http://192.168.3.6/',//服务器api地址
+          changeOrigin: true,//是否跨域
+          ws: true, // proxy websockets
+          pathRewrite: {//重写路径
+              "^/api": ''
+          }
+      },
+  }
   },
 
   configureWebpack: config => {

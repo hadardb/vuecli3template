@@ -12,6 +12,7 @@
     "@sentry/browser": "^5.15.5",
     "@sentry/cli": "^1.52.3",
     "@sentry/integrations": "^5.15.5",
+    "axios": "^0.19.2",
     "core-js": "^3.3.2",
     "element-ui": "^2.13.1",
     "node-sass": "^4.13.0",

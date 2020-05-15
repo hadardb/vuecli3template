@@ -3,7 +3,7 @@
  * @Author: Haojin Sun
  * @Date: 2019-12-02 12:15:20
  * @LastEditors: Haojin Sun
- * @LastEditTime: 2020-05-11 19:49:19
+ * @LastEditTime: 2020-05-15 17:38:21
  */
 const { appConfig } = require('./appConfig')
 const path = require('path')
@@ -20,7 +20,8 @@ module.exports = {
       entry: 'src/main.js', // page的主入口
       template: 'public/index.html', // 模板来源
       filename: 'index.html', // 在 dist/index.html 的输出
-      title: appConfig.title
+      title: appConfig.title,
+      urlPrefix: appConfig.urlPrefix
     }
   },
   // css 相关选项
@@ -39,23 +40,36 @@ module.exports = {
       .set('@', resolve('src'))
       .set('_c', resolve('src/components'))
   },
-  // 打包时不生成map文件
-  productionSourceMap: false,
+  // 打包时生成map文件
+  productionSourceMap: true,
   devServer: {
     proxy: {
       '/api': {//代理api
-          target: 'http://192.168.3.6/',//服务器api地址
-          changeOrigin: true,//是否跨域
-          ws: true, // proxy websockets
-          pathRewrite: {//重写路径
-              "^/api": ''
-          }
+        target: 'http://192.168.3.6/',//服务器api地址
+        changeOrigin: true,//是否跨域
+        ws: true, // proxy websockets
+        pathRewrite: {//重写路径
+          "^/api": ''
+        }
       },
-  }
+    }
   },
 
   configureWebpack: config => {
     if (process.env.NODE_ENV !== 'development') {
+        // console.log(config.optimization.minimizer[0].options)
+      // config.optimization = {
+      //   minimizer: [
+      //     new UglifyJsPlugin({
+      //       uglifyOptions: {
+      //         // 删除注释
+      //         output: {
+      //           comments: true
+      //         }
+      //       }
+      //     })
+      //   ]
+      // },
       // 忽略console
       config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true
       // 配置sentry

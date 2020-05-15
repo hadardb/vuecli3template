@@ -3,7 +3,7 @@
  * @Author: Haojin Sun
  * @Date: 2019-12-02 12:15:20
  * @LastEditors: Haojin Sun
- * @LastEditTime: 2020-05-09 09:05:40
+ * @LastEditTime: 2020-05-15 16:28:34
  -->
 <template>
   <div id="app">
@@ -12,7 +12,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'app'
 }

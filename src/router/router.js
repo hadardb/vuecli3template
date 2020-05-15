@@ -3,7 +3,7 @@
  * @Author: Haojin Sun
  * @Date: 2019-12-02 12:15:20
  * @LastEditors: Haojin Sun
- * @LastEditTime: 2020-05-11 21:26:53
+ * @LastEditTime: 2020-05-15 13:51:04
  */
 import Home from '@/views/Home.vue'
 

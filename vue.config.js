@@ -3,7 +3,7 @@
  * @Author: Haojin Sun
  * @Date: 2019-12-02 12:15:20
  * @LastEditors: Haojin Sun
- * @LastEditTime: 2020-05-15 17:38:21
+ * @LastEditTime: 2020-05-19 09:54:09
  */
 const { appConfig } = require('./appConfig')
 const path = require('path')
@@ -20,8 +20,7 @@ module.exports = {
       entry: 'src/main.js', // page的主入口
       template: 'public/index.html', // 模板来源
       filename: 'index.html', // 在 dist/index.html 的输出
-      title: appConfig.title,
-      urlPrefix: appConfig.urlPrefix
+      title: appConfig.title
     }
   },
   // css 相关选项
@@ -57,19 +56,6 @@ module.exports = {
 
   configureWebpack: config => {
     if (process.env.NODE_ENV !== 'development') {
-        // console.log(config.optimization.minimizer[0].options)
-      // config.optimization = {
-      //   minimizer: [
-      //     new UglifyJsPlugin({
-      //       uglifyOptions: {
-      //         // 删除注释
-      //         output: {
-      //           comments: true
-      //         }
-      //       }
-      //     })
-      //   ]
-      // },
       // 忽略console
       config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true
       // 配置sentry
@@ -79,16 +65,15 @@ module.exports = {
           deleteAfterCompile: true,
           project: appConfig.project,
           apiKey: appConfig.sentryKey,
+          filenameTransform: function (filename) {
+            return appConfig.urlPrefix + filename
+         },
           baseSentryURL: 'http://120.26.91.104:9000/api/0',
 
           // Release version name/hash is required
           release: appConfig.release
         })
       )
-      // Object.assign(config.output, {
-      //   filename: `js/[name].[contenthash:6].${appConfig.version}.js`,
-      //   chunkFilename: `js/[name].[contenthash:6].${appConfig.version}.js`
-      // })
     }
   }
 }

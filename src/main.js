@@ -3,7 +3,7 @@
  * @Author: Haojin Sun
  * @Date: 2019-12-02 12:15:20
  * @LastEditors: Haojin Sun
- * @LastEditTime: 2020-05-11 19:52:39
+ * @LastEditTime: 2020-05-19 10:30:32
  */
 import Vue from 'vue'
 import App from './App.vue'
@@ -19,7 +19,7 @@ import { appConfig } from '../appConfig'
 // 生产环境则接入sentry监听模块
 if(process.env.NODE_ENV === 'production'){
   Sentry.init({
-    dsn: 'http://4ded702fd7924437882ee4518a245eca@120.26.91.104:9000/2',
+    dsn: appConfig.dsn,
     integrations: [new VueIntegration({Vue,
       attachProps: true})],
     release: appConfig.release

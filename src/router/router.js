@@ -3,7 +3,7 @@
  * @Author: Haojin Sun
  * @Date: 2019-12-02 12:15:20
  * @LastEditors: Haojin Sun
- * @LastEditTime: 2020-05-15 13:51:04
+ * @LastEditTime: 2020-07-24 10:04:15
  */
 import Home from '@/views/Home.vue'
 
@@ -13,21 +13,6 @@ export default [
     name: 'home',
     component: Home
   },
-  {
-    path: '/about',
-    name: 'about',
-    component: () => import('../views/about')
-  },
-  {
-    path: '/api-test',
-    name: 'api-test',
-    component: () => import('../views/api-test')
-  },
-  {
-    path: '/big-screen',
-    name: 'big-screen',
-    component: () => import('../views/big-screen')
-  },  
   {
     path: '/404',
     name: '404',

@@ -3,7 +3,7 @@
  * @Author: Haojin Sun
  * @Date: 2020-03-12 08:54:01
  * @LastEditors: Haojin Sun
- * @LastEditTime: 2020-04-28 16:46:24
+ * @LastEditTime: 2020-07-24 10:29:44
  -->
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +14,17 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <link rel="icon" href="<%= BASE_URL %>favicon.ico">
   <title><%= htmlWebpackPlugin.options.title %></title>
+  <% if (process.env.NODE_ENV === 'production') { %>
+
+    <% for(var css of htmlWebpackPlugin.options.cdn.css) { %>
+      <link href="<%=css%>" rel="preload" as="style">
+      <link rel="stylesheet" href="<%=css%>" as="style">
+    <% } %>
+    <% for(var js of htmlWebpackPlugin.options.cdn.js) { %>
+      <link href="<%=js%>" rel="preload" as="script">
+      <script src="<%=js%>"></script>
+      <% } %>
+  <% } %>
 </head>
 
 <body>

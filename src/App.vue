@@ -3,22 +3,17 @@
  * @Author: Haojin Sun
  * @Date: 2019-12-02 12:15:20
  * @LastEditors: Haojin Sun
- * @LastEditTime: 2020-05-19 16:55:54
+ * @LastEditTime: 2020-07-30 20:41:46
  -->
 <template>
   <div id="app">
-    <navMenu />
     <router-view />
   </div>
 </template>
 
 <script>
-import navMenu from '@/components/navMenu'
 export default {
-  name: 'app',
-  components: {
-    navMenu
-  }
+  name: 'app'
 }
 </script>
 <style lang="scss">

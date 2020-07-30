@@ -3,7 +3,7 @@
  * @Author: Haojin Sun
  * @Date: 2019-12-02 12:15:20
  * @LastEditors: Haojin Sun
- * @LastEditTime: 2020-07-24 11:01:38
+ * @LastEditTime: 2020-07-30 20:43:10
  */
 const { appConfig } = require('./appConfig')
 const path = require('path')
@@ -40,39 +40,42 @@ module.exports = {
       .set('@', resolve('src'))
       .set('_c', resolve('src/components'))
 
-    // 使用cdn加速
-    // 忽略生产环境打包的文件
-    var externals = {
-      vue: 'Vue',
-      axios: 'axios',
-      'element-ui': 'ELEMENT',
-      'vue-router': 'VueRouter',
-      vuex: 'Vuex'
+    if (process.env.NODE_ENV === 'production') {
+      // 使用cdn加速
+      // 忽略生产环境打包的文件
+      var externals = {
+        vue: 'Vue',
+        axios: 'axios',
+        'element-ui': 'ELEMENT',
+        'vue-router': 'VueRouter',
+        vuex: 'Vuex'
+      }
+      config.externals(externals)
+      const cdn = {
+        css: [
+          // element-ui css
+          'https://cdn.bootcdn.net/ajax/libs/element-ui/2.13.1/theme-chalk/index.css'
+        ],
+        js: [
+          // vue
+          'https://cdn.bootcdn.net/ajax/libs/vue/2.6.10/vue.min.js',
+          // vue-router
+          'https://cdn.bootcdn.net/ajax/libs/vue-router/3.1.3/vue-router.min.js',
+          // vuex
+          'https://cdn.bootcdn.net/ajax/libs/vuex/3.0.1/vuex.min.js',
+          // axios
+          'https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.min.js',
+          // element-ui js
+          'https://cdn.bootcdn.net/ajax/libs/element-ui/2.13.1/index.js'
+        ]
+      }
+      config.plugin('html')
+        .tap(args => {
+          args[0].cdn = cdn
+          return args
+        })
     }
-    config.externals(externals)
-    const cdn = {
-      css: [
-        // element-ui css
-        'https://cdn.bootcdn.net/ajax/libs/element-ui/2.13.1/theme-chalk/index.css'
-      ],
-      js: [
-        // vue
-        'https://cdn.bootcdn.net/ajax/libs/vue/2.6.10/vue.min.js',
-        // vue-router
-        'https://cdn.bootcdn.net/ajax/libs/vue-router/3.1.3/vue-router.min.js',
-        // vuex
-        'https://cdn.bootcdn.net/ajax/libs/vuex/3.0.1/vuex.min.js',
-        // axios
-        'https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.min.js',
-        // element-ui js
-        'https://cdn.bootcdn.net/ajax/libs/element-ui/2.13.1/index.js'
-      ]
-    }
-    config.plugin('html')
-      .tap(args => {
-        args[0].cdn = cdn
-        return args
-      })
+
 
     // 打包分析
     if (process.env.IS_ANALYZE) {

@@ -3,7 +3,7 @@
  * @Author: Haojin Sun
  * @Date: 2019-12-02 12:15:20
  * @LastEditors: Haojin Sun
- * @LastEditTime: 2020-07-24 11:01:08
+ * @LastEditTime: 2020-07-30 20:43:19
  */
 import Vue from 'vue'
 import App from './App.vue'
